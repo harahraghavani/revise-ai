@@ -11,7 +11,7 @@ const NavBar = () => {
           Revise AI
         </Heading>
         <Flex gap={3} alignItems={"center"}>
-          <NavBarColorModeBtn />
+          {/* <NavBarColorModeBtn /> */}
           <Link href="https://github.com/harahraghavani" target="_blank">
             <IconButton
               bg="transparent"
