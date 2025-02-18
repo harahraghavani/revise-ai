@@ -12,7 +12,10 @@ const NavBar = () => {
         </Heading>
         <Flex gap={3} alignItems={"center"}>
           {/* <NavBarColorModeBtn /> */}
-          <Link href="https://github.com/harahraghavani" target="_blank">
+          <Link
+            href="https://github.com/harahraghavani/revise-ai"
+            target="_blank"
+          >
             <IconButton
               bg="transparent"
               _hover={{

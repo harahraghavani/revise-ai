@@ -58,6 +58,7 @@ const ResponseSection = () => {
               borderRadius="lg"
               textAlign="center"
               bg={colorMode === "light" ? "gray.100" : "gray.700"}
+              width="100%"
             >
               <Flex direction="column" align="center" gap={3}>
                 <Icon as={InfoOutlineIcon} boxSize={8} color="blue.500" />
@@ -83,6 +84,7 @@ const ResponseSection = () => {
                 borderRadius="md"
                 textAlign="center"
                 bg={colorMode === "light" ? "gray.100" : "gray.700"}
+                width="100%"
               >
                 <Flex direction="column" align="center" gap={3} mb={3}>
                   <Text fontSize="md" textAlign="start">
