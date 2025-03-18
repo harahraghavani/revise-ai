@@ -6,7 +6,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import PromptSection from "@/app/components/Home/PromptSection";
 import ResponseSection from "@/app/components/Home/ResponseSection";
 import NavBar from "@/app/components/common/NavBar";
-import { FaPen, FaCogs, FaCompress } from "react-icons/fa";
+import { FaPen, FaCogs, FaCompress, FaListOl } from "react-icons/fa";
 
 const HomePage = () => {
   const methods = useForm({
@@ -21,7 +21,7 @@ const HomePage = () => {
         {
           id: "re-write",
           name: "Re-write",
-          loadingText: "Writing...",
+          loadingText: "Generating...",
           icon: <FaPen />,
           colorScheme: "blue",
           variant: "solid",
@@ -29,7 +29,7 @@ const HomePage = () => {
         {
           id: "refine",
           name: "Refine",
-          loadingText: "Refining...",
+          loadingText: "Generating...",
           icon: <FaCogs />,
           colorScheme: "green",
           variant: "solid",
@@ -37,9 +37,17 @@ const HomePage = () => {
         {
           id: "shorten",
           name: "Shorten",
-          loadingText: "Shortening...",
+          loadingText: "Generating...",
           icon: <FaCompress />,
           colorScheme: "purple",
+          variant: "solid",
+        },
+        {
+          id: "format-list",
+          name: "Format List",
+          loadingText: "Generating...",
+          icon: <FaListOl />,
+          colorScheme: "orange",
           variant: "solid",
         },
       ],
@@ -49,7 +57,14 @@ const HomePage = () => {
   return (
     <Box>
       <NavBar />
-      <Box height={"calc(100vh - 80px)"}>
+      <Box
+        height={"calc(100vh - 80px)"}
+        maxWidth={{
+          base: "100%",
+          md: "1800px",
+        }}
+        mx="auto"
+      >
         <FormProvider {...methods}>
           <Grid templateColumns={"repeat(12, 1fr)"} height="100%">
             <GridItem

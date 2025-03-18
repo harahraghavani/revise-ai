@@ -1,5 +1,5 @@
 "use client";
-import { formateString } from "@/app/utility/utils/utils";
+import { formateString, formatString } from "@/app/utility/utils/utils";
 import {
   Box,
   Button,
@@ -33,7 +33,7 @@ const ResponseSection = () => {
   const handleCopyToClipboard = () => {
     const text = watch("responseMessage")?.trim();
     if (text) {
-      const plainText = formateString(text);
+      const plainText = formatString(text);
       navigator.clipboard.writeText(plainText).then(() => {
         setIsCopied(true);
         // Revert back to copy icon after 2 seconds
@@ -57,7 +57,7 @@ const ResponseSection = () => {
               p={6}
               borderRadius="lg"
               textAlign="center"
-              bg={colorMode === "light" ? "gray.100" : "gray.700"}
+              bg={colorMode === "light" ? "gray.50" : "gray.700"}
               width="100%"
             >
               <Flex direction="column" align="center" gap={3}>
@@ -78,15 +78,15 @@ const ResponseSection = () => {
           </Center>
         ) : (
           !isEmptyState && (
-            <Center height="inherit" alignItems="baseline">
+            <Box height="inherit">
               <Card
                 p={6}
                 borderRadius="md"
-                textAlign="center"
-                bg={colorMode === "light" ? "gray.100" : "gray.700"}
+                textAlign="start"
+                bg={colorMode === "light" ? "gray.50" : "gray.700"}
                 width="100%"
               >
-                <Flex direction="column" align="center" gap={3} mb={3}>
+                <Flex direction="column" alignItems="baseline" gap={3} mb={3}>
                   <Text fontSize="md" textAlign="start">
                     <Markdown
                       components={customMarkdownTheme}
@@ -111,7 +111,7 @@ const ResponseSection = () => {
                   </Flex>
                 )}
               </Card>
-            </Center>
+            </Box>
           )
         )}
       </Box>

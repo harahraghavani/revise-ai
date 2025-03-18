@@ -63,7 +63,7 @@ const FormInput = ({
       isInvalid={!!errors[name] || showErrorBorder}
       width={"100%"}
     >
-      <FormLabel htmlFor={id} marginBottom={labelMargin}>
+      <FormLabel htmlFor={id} marginBottom={labelMargin} fontSize="xl">
         {label}
       </FormLabel>
       <InputGroup>
@@ -72,7 +72,7 @@ const FormInput = ({
             textareaRef.current = e;
             inputRef(e);
           }}
-          value={value}
+          value={value || ""}
           width="100%"
           minW={"100%"}
           type={type}

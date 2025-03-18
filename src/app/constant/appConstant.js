@@ -7,6 +7,8 @@ export const GEMINI_1_5_PRO = "gemini-1.5-pro";
 export const GEMINI_1_5_PRO_002 = "gemini-1.5-pro-002";
 export const GEMINI_1_5_PRO_LATEST = "gemini-1.5-pro-latest";
 export const GEMINI_PRO = "gemini-pro";
+export const GEMINI_2_0_FLASH_001 = "gemini-2.0-flash-001";
+export const GEMINI_2_0_FLASH = "gemini-2.0-flash";
 
 export const SYSTEM_PROMPT = `You are an advanced AI writing assistant specialized in rewriting messages for better clarity, tone, and impact.
 - Your task is to enhance readability, improve flow, and adjust the tone based on the context while preserving the original meaning.
@@ -34,5 +36,10 @@ export const ACCORDION = [
     answer: `   Reduces the length of the input message while maintaining its
                   core meaning. Perfect for condensing lengthy content into more
                   digestible pieces.`,
+  },
+  {
+    id: 4,
+    question: "What is Format List ?",
+    answer: `Formats the input message into a structured list, such as numbered points or bullet points. Useful for organizing information in a clear and readable format.`,
   },
 ];

@@ -11,13 +11,19 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Card,
 } from "@chakra-ui/react";
 import { useFormContext } from "react-hook-form";
 
 import FormInput from "../form/FromInput";
 import { generateStreamedTextData } from "@/app/server/server";
 import { readStreamableValue } from "ai/rsc";
-import { ACCORDION, GEMINI_1_5_FLASH_LATEST } from "@/app/constant/appConstant";
+import {
+  ACCORDION,
+  GEMINI_1_5_FLASH_LATEST,
+  GEMINI_2_0_FLASH,
+  GEMINI_2_0_FLASH_001,
+} from "@/app/constant/appConstant";
 import { getSystemInput } from "@/app/utility/utils/utils";
 
 const PromptSection = () => {
@@ -42,7 +48,7 @@ const PromptSection = () => {
     try {
       const { output } = await generateStreamedTextData({
         prompt: inputValue,
-        model: GEMINI_1_5_FLASH_LATEST,
+        model: GEMINI_2_0_FLASH,
         systemPrompt: getSystemInput({
           taskType: actionType,
           userText: inputValue,
@@ -80,7 +86,7 @@ const PromptSection = () => {
                 register={register}
                 errors={errors}
                 rules={{}}
-                label="Enter Message"
+                label="Enter Your Message"
                 placeHolderText="Please provide the message you would like me to rewrite, refine, or shorten."
                 labelMargin={2}
                 errorMsg={false}
@@ -90,11 +96,11 @@ const PromptSection = () => {
             </GridItem>
           </Grid>
           {/* BUTTONS */}
-          <Grid templateColumns={"repeat(12, 1fr)"} mt={4} gap={2}>
+          <Grid templateColumns={"repeat(12, 1fr)"} mt={4} gap={3}>
             {buttons?.map((e) => {
               const isClicked = activeBtnId === e?.id;
               return (
-                <GridItem colSpan={{ base: 4 }} key={e?.id}>
+                <GridItem colSpan={{ base: 12, md: 6 }} key={e?.id}>
                   <Button
                     width="100%"
                     leftIcon={e?.icon}
@@ -104,6 +110,7 @@ const PromptSection = () => {
                     disabled={
                       isClicked || !isFormValid || watch("isGenerating")
                     } // Disable clicked button and others during loading
+                    variant={e?.variant}
                     onClick={() => handleGenerate(e?.id)}
                   >
                     {e?.name}
@@ -113,7 +120,7 @@ const PromptSection = () => {
             })}
           </Grid>
           {/* ACCORDION INFO SECTION */}
-          <Box mt={6} p={4} borderWidth={0.5} borderRadius="md">
+          <Card mt={6} p={4} borderRadius="md">
             <Text fontSize="lg" fontWeight="bold">
               Action Descriptions
             </Text>
@@ -136,7 +143,7 @@ const PromptSection = () => {
                 );
               })}
             </Accordion>
-          </Box>
+          </Card>
         </Flex>
       </Box>
     </Box>
