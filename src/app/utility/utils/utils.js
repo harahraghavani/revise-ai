@@ -18,6 +18,7 @@ export const formatString = (text) => {
         .replace(/\[(.*?)\]\(.*?\)/g, "$1") // Remove links but keep the text
         .replace(/^#+\s/gm, "") // Remove heading markers
         .replace(/^(\*|\-|\+) /gm, "• ") // Convert *, -, + list markers to proper bullets
+        .replace(/"/g, "") // Remove double quotes
         .trim();
     }
 
@@ -33,47 +34,6 @@ export const truncateText = (text, maxLength = 100) => {
     return "Generated Image";
   }
 };
-
-// export const getSystemInput = ({ taskType, userText }) => {
-//   let instruction = "";
-
-//   switch (taskType.toLowerCase()) {
-//     case "re-write":
-//       instruction =
-//         "Re-write the given text to improve grammar, structure, and flow while keeping the core message intact.";
-//       break;
-//     case "refine":
-//       instruction =
-//         "Refine the given text for better clarity, professionalism, and readability while strictly maintaining the original meaning.";
-//       break;
-//     case "shorten":
-//       instruction =
-//         "Shorten the given text by making it more concise without losing essential details or altering the original intent.";
-//       break;
-//     case "format-list":
-//       instruction = `Convert the given text into a structured list. If the text contains multiple ideas, format them as:
-//       - A numbered list if they follow a logical sequence (e.g., steps or priority-based items).
-//       - Bullet points if they are general key points.
-//       Keep sentences clear and concise.`;
-//       break;
-//     default:
-//       instruction = "Enhance the given text while preserving its meaning.";
-//   }
-
-//   return `
-//   You are an advanced AI language model specializing in text and sentence improvement.
-//   Your task: ${instruction}
-
-//   ### **Guidelines:**
-//   - Always preserve the original intent and meaning.
-//   - Ensure the output is natural, polished, and professional.
-//   - Keep the tone and style consistent with the input.
-//   - Do not introduce new information or remove key details unless explicitly instructed.
-
-//   **Input Text:**
-//   "${userText}"
-//   `;
-// };
 
 export const getSystemInput = ({ taskType, userText }) => {
   let instruction = "";
