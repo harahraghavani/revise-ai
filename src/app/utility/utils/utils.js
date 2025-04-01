@@ -89,7 +89,7 @@ export const getSystemInput = ({ taskType, userText }) => {
   ${examples}
 
   ### **Guidelines:**
-  - Always preserve the original intent and meaning.
+  - Ensure the original intent and meaning are always preserved.
   - Ensure the output is natural, polished, and professional.
   - Keep the tone and style consistent with the input.
   - Do not introduce new information or remove key details unless explicitly instructed.

@@ -21,7 +21,6 @@ export const generateStreamedTextData = async ({
         model: generativeModel,
         prompt,
         system: systemPrompt,
-        // experimental_transform: smoothStream(),
         experimental_transform: smoothStream({
           delayInMs: 15, // Adjust for smoother streaming
           chunking: "word", // Stream word by word for natural reading
